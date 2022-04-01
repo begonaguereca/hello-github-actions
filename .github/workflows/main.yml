@@ -1,11 +1,15 @@
-name: A workflow for my Hello World file
+name: build-playground/joel.dunham/VariableTemplates
 on: push
+env:
+  favoriteVeggie: brussels sprouts
+  message: from pipeline
+  spam: eggs
 jobs:
   build:
-    name: Hello world action
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - uses: ./action-a
-        with:
-          MY_NAME: "Mona"
+    - name: checkout
+      uses: actions/checkout@v2
+    - run: echo My favorite vegetable is ${{ variables.favoriteVeggie }}.
+    - run: echo My favorite breakfast is ${{ variables.spam }}
+    - run: echo ${{ variables.message }}
