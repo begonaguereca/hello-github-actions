@@ -10,6 +10,6 @@ jobs:
     steps:
     - name: checkout
       uses: actions/checkout@v2
-    - run: echo My favorite vegetable is ${{ variables.favoriteVeggie }}.
-    - run: echo My favorite breakfast is ${{ variables.spam }}
+    - run: echo "My favorite vegetable is ${{ variables.favoriteVeggie }}"
+    - run: echo "My favorite breakfast is ${{ variables.spam }}"
     - run: echo ${{ variables.message }}
