@@ -1,15 +1,20 @@
-name: build-playground/joel.dunham/VariableTemplates
-on: push
-env:
-  favoriteVeggie: brussels sprouts
-  message: from pipeline
-  spam: eggs
+name: build-playground/integration-tests/yaml/download_steps
+on:
+  push:
+    branches:
+    - "*"
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
     - name: checkout
       uses: actions/checkout@v2
-    - run: echo "My favorite vegetable is ${{ variables.favoriteVeggie }}"
-    - run: echo "My favorite breakfast is ${{ variables.spam }}"
-    - run: echo ${{ variables.message }}
+    - uses: actions/download-artifact@v2
+      with:
+        name: WebApp
+#     # This action relies on the workflow '.yml' being present in this repository (change the repository parameter if the workflow is in a different repository).
+#     # Ensure the workflow exists and uploads an artifact for this to use.
+#     - uses: dawidd6/action-download-artifact@v2
+#       with:
+#         github_token: "${{ secrets.GITHUB_TOKEN }}"
+#         repo: "${{ github.repository }}"
