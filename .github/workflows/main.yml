@@ -10,6 +10,7 @@ jobs:
     - name: checkout
       uses: actions/checkout@v2
     - uses: actions/download-artifact@v2
+      if: true
       with:
         name: WebApp
 #     # This action relies on the workflow '.yml' being present in this repository (change the repository parameter if the workflow is in a different repository).
